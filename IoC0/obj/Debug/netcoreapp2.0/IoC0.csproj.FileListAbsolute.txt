@@ -1,0 +1,10 @@
+/home/cafeina/Code/DotNet/IoC/IoC0/bin/Debug/netcoreapp2.0/IoC0.deps.json
+/home/cafeina/Code/DotNet/IoC/IoC0/bin/Debug/netcoreapp2.0/IoC0.runtimeconfig.json
+/home/cafeina/Code/DotNet/IoC/IoC0/bin/Debug/netcoreapp2.0/IoC0.runtimeconfig.dev.json
+/home/cafeina/Code/DotNet/IoC/IoC0/bin/Debug/netcoreapp2.0/IoC0.dll
+/home/cafeina/Code/DotNet/IoC/IoC0/bin/Debug/netcoreapp2.0/IoC0.pdb
+/home/cafeina/Code/DotNet/IoC/IoC0/obj/Debug/netcoreapp2.0/IoC0.csproj.CoreCompileInputs.cache
+/home/cafeina/Code/DotNet/IoC/IoC0/obj/Debug/netcoreapp2.0/IoC0.AssemblyInfoInputs.cache
+/home/cafeina/Code/DotNet/IoC/IoC0/obj/Debug/netcoreapp2.0/IoC0.AssemblyInfo.cs
+/home/cafeina/Code/DotNet/IoC/IoC0/obj/Debug/netcoreapp2.0/IoC0.dll
+/home/cafeina/Code/DotNet/IoC/IoC0/obj/Debug/netcoreapp2.0/IoC0.pdb
