@@ -6,6 +6,15 @@ namespace IoC0
     {
         static void Main(string[] args)
         {
+            WorkingRobot workingRobot = new WorkingRobot();
+            workingRobot.Work();
+        }
+    }
+
+    public class WorkingRobot
+    {
+        public void Work()
+        {
             Database database = new Database();
             FileWriter fileWriter = new FileWriter();
             MailNotification mailNotification = new MailNotification();
@@ -23,8 +32,6 @@ namespace IoC0
             {
                 pidgeonNotification.SendNotification();
             }
-
-
         }
     }
 
