@@ -1,0 +1,53 @@
+1. Introdução
+Estrutura básica:
+– Antecedentes do problema.
+– Descrição do problema.
+– Trabalhos já realizados.
+– Aplicabilidade e originalidade da pesquisa.
+– Objetivo (problema de pesquisa).
+
+Erros comuns:
+– Orientação mais empírica que teórica.
+– Introdução muito longa, incluindo trechos que poderiam ser melhor utilizados na discussão.
+– Detalhes excessivos na descrição de estudos prévios.
+– “Reinvenção da roda”, especialmente na primeira sentença ou parágrafo.
+– Omissão de estudos diretamente relevantes.
+– Terminologia confusa.
+– Citações incorretas.
+
+
+
+2. Material e métodos
+Estrutura básica:
+– Local e condições experimentais.
+– Delineamento e tratamentos.
+– Controle das condições experimentais.
+– Variáveis (avaliações).
+– Análise estatística.
+
+Erros comuns:
+– Informação inadequada para avaliação ou replicação.
+– Descrições detalhadas de métodos padronizados e publicados.
+– Deixar de explicar análises estatísticas não usuais.
+– Participantes muito heterogêneos.
+– Medidas não validadas; de confiabilidade fraca ou desconhecida.
+
+
+3. Resultados
+Estrutura básica:
+– Resultados da análise estatística.
+– Estatísticas descritivas (médias, desvio padrão e correlações)
+– Estatísticas inferenciais
+– Relatar a significância e a amplitude dos dados.
+– Análises adicionais (usualmente post hoc).
+
+Erros comuns:
+– Tabelas e figuras complexas, incompreensíveis.
+– Repetição dos dados no texto, nas tabelas e nas figuras.
+– Não utilizar o mesmo estilo de redação da introdução e do material e métodos.
+– Não apresentar os dados prometidos na seção material e métodos.
+– Análise estatística inadequada ou inapropriada.
+
+
+
+Conclusões
