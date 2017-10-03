@@ -8,10 +8,20 @@ namespace IoC1Constructor
         {
             Database database = new Database();
             FileWriter fileWriter = new FileWriter();
-            MailNotification mailNotification = new MailNotification();
-            PidgeonNotification pidgeonNotification = new PidgeonNotification();
+            Notification notification;
+            bool isABadThingUsingAnimalsForSendingMessages = true;
+            
+            if (isABadThingUsingAnimalsForSendingMessages)
+            {
+                notification = new MailNotification();
+            }
+            else
+            {
+                notification = new PidgeonNotification();
+            }
 
-            WorkingRobot workingRobot = new WorkingRobot(database, fileWriter, mailNotification, pidgeonNotification);
+
+            WorkingRobot workingRobot = new WorkingRobot(database, fileWriter, notification);
             workingRobot.Work();
         }
 
@@ -19,31 +29,22 @@ namespace IoC1Constructor
         {
             private readonly Database _database;
             private readonly FileWriter _fileWriter;
-            private readonly MailNotification _mailNotification;
-            private readonly PidgeonNotification _pidgeonNotification;
+            private readonly Notification _notification;
 
-            public WorkingRobot(Database database, FileWriter fileWriter, MailNotification mailNotification, PidgeonNotification pidgeonNotification )
+            public WorkingRobot(Database database, FileWriter fileWriter, Notification notification)
             {
                 _database = database;
                 _fileWriter = fileWriter;
-                _mailNotification = mailNotification;
-                _pidgeonNotification = pidgeonNotification;
+                _notification = notification;
             }
             public void Work()
             {
-                bool isABadThingUsingAnimalsForSendingMessages = true;
+                
 
                 _database.Select();
                 _fileWriter.Write();
                 _database.UpdateChanges();
-                if (isABadThingUsingAnimalsForSendingMessages)
-                {
-                    _mailNotification.SendNotification();
-                }
-                else
-                {
-                    _pidgeonNotification.SendNotification();
-                }
+                _notification.SendNotification();
             }
         }
         public class Database
