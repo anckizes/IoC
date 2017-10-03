@@ -1,40 +1,47 @@
 # Intro:
 
-Pra começar: O que é injeção de dependência?
-Na vida prática: Você precisa ir ao mercado. Para executar esta tarefa suas dependências são:
- - Verificar se há água no carburador do carro suficiente para o trajeto;
+Pra comeÃ§ar: O que Ã© injeÃ§Ã£o de dependencia?
+Na vida prï¿½tica: Vocï¿½ precisa ir ao mercado. Para executar esta tarefa suas dependï¿½ncias sï¿½o:
+ - Verificar se hï¿½ ï¿½gua no carburador do carro suficiente para o trajeto;
  - Verificar num mapa o trajeto mais curto;
- - Ouvir na rádio local se há algum impedimento no caminho;
+ - Ouvir na rï¿½dio local se hï¿½ algum impedimento no caminho;
  - Montar a lista de compras;
-Então aí você já pode ir comprar em segurança. A injeção de dependência ocorre quando:
- - Seu carro lhe avisa se há alguma pendência (água, gás etc) e não é necessário que você saiba como medir;
- - Seu GPS já lhe traça o melhor caminho se baseando no mapa e no trânsito;
- - Alguém que te ama muito já fez essa lista e deixou em cima da mesa prontinha. (Case com essa pessoa)
- 
- Agora falando tecnicamente: O que é injeção de dependência?
-A Injeção de Dependência é um paradigma que permite um objeto não ser responsável pela criação ou manutenção de outros que façam parte da sua lista de dependências. 
-O objeto recebe (é injetado nele) os demais objetos que são necessários à ele para executar sua tarefa.
-A injeção de dependências é ferramenta para conquistar melhorias de código como: Desacoplação de classe, reutilização de código, possibilita teste correto, manter a responsabilidade única da classe etc.
+Entï¿½o aï¿½ vocï¿½ jï¿½ pode ir comprar em seguranï¿½a. A injeï¿½ï¿½o de dependï¿½ncia ocorre quando:
+ - Seu carro lhe avisa se hï¿½ alguma pendï¿½ncia (ï¿½gua, gï¿½s etc) e nï¿½o ï¿½ necessï¿½rio que vocï¿½ saiba como medir;
+ - Seu GPS jï¿½ lhe traï¿½a o melhor caminho se baseando no mapa e no trï¿½nsito;
+ - Alguï¿½m que te ama muito jï¿½ fez essa lista e deixou em cima da mesa prontinha. (Case com essa pessoa)
+
+ Agora falando tecnicamente: O que ï¿½ injeï¿½ï¿½o de dependï¿½ncia?
+A Injeï¿½ï¿½o de Dependï¿½ncia ï¿½ um paradigma que permite um objeto nï¿½o ser responsï¿½vel pela criaï¿½ï¿½o ou manutenï¿½ï¿½o de outros que faï¿½am parte da sua lista de dependï¿½ncias.
+O objeto recebe (ï¿½ injetado nele) os demais objetos que sï¿½o necessï¿½rios ï¿½ ele para executar sua tarefa.
+A injeï¿½ï¿½o de dependï¿½ncias ï¿½ ferramenta para conquistar melhorias de cï¿½digo como: Desacoplaï¿½ï¿½o de classe, reutilizaï¿½ï¿½o de cï¿½digo, possibilita teste correto, manter a responsabilidade ï¿½nica da classe etc.
 
 
-# Na prática. 
+# Na prï¿½tica.
 
-- Cenário ruim em C#
+- Cenï¿½rio ruim em C#
 
-Neste código existe é claro que a classe Worker depende de Database, Database, MailNotification, PidgeonNotification. Qualquer modificação no contrato destas classes exige uma modificação na classe worker.
-Também é muito ruim testar este código. No teste você obrigatoriamente teria que escrever o arquivo, salvar no banco e até mandar um e-mail para que seu processo chegue ao fim.
+Neste cï¿½digo existe ï¿½ claro que a classe Worker depende de Database, Database, MailNotification, PidgeonNotification. Qualquer modificaï¿½ï¿½o no contrato destas classes exige uma modificaï¿½ï¿½o na classe worker.
+Tambï¿½m ï¿½ muito ruim testar este cï¿½digo. No teste vocï¿½ obrigatoriamente teria que escrever o arquivo, salvar no banco e atï¿½ mandar um e-mail para que seu processo chegue ao fim.
 
-Para solucionar esse cenário, podemos usar alguns tipos de injeção de dependência.
+Imagine que outras pessoas vÃ£o continuar a programar este projetoe queiram implementar uma nova classe de envio. SerÃ¡ neessÃ¡rio, alÃ©m de implementar a nova classe, tambÃ©m mudar o objeto WorkingRobot para adicionar mais esta dependÃªncia. E isto se propagarÃ¡ a cada mudanÃ§a. Ruim pra caramba. Num modelo mais real, se a a persistÃªncia de dados fosse movida para outro SGBD, deveria ser criada nova classe e o objeto WorkingRobot tambÃ©m deveria conhecer a conexÃ£o com esta.
 
- Tipos de injeção:
+Injetando os objetos na classe WorkingRobot na sua criaÃ§Ã£o tiramos a responsabilidade dela de saber como escolher o melhor metodo de envio, ou qual conexÃ£o a ser usada no banco de dados, ou qual sgbd a ser usado etc. Ela simplesmente faz o que Ã© do domÃ­nio dela.
 
-- Correção em cada tipo de injeção
+Para solucionar esse cenï¿½rio, podemos usar alguns tipos de injeï¿½ï¿½o de dependï¿½ncia.
 
-### Injeção no construtor.
+ Tipos de injeï¿½ï¿½o:
 
-### Injeção de Interface no construtor.
+- Correï¿½ï¿½o em cada tipo de injeï¿½ï¿½o
 
-### Injeção por set.
+### Injeï¿½ï¿½o por construtor.
+Quando injetamos por construtor, fazemos que a classe quando instanciada jÃ¡ receba todas as dependÃªncias que ela precise. Que a classe que recebe a injeÃ§Ã£o jÃ¡ "nasÃ§a" (seja instanciado) com todos os objetos que ela precisa carregados nela. Assim basta a classe principal saber como trabalhar sobre os objetos que ela tem, nÃ£o importando como estes jÃ¡ vieram configurados e carregados.
+No exemplo abaixo fizemos a classe principal instanciar os objetos necessÃ¡rios e tambÃ©m escolher qual tipo de notificaÃ§Ã£o serÃ¡ enviada. E, voila, ela funciona exatamento como anterior.
+
+### Injeï¿½ï¿½o por Interface.
+
+
+### Injeï¿½ï¿½o por setter.
 
 
 
@@ -42,7 +49,7 @@ Para solucionar esse cenário, podemos usar alguns tipos de injeção de dependênci
 
 - Comparativo de antes e depois (mostrar as vantagens que foram enunciadas)
 
-# Conclusões
+# Conclusï¿½es
 
 - Use essa porra!!
 
