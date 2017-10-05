@@ -1,6 +1,10 @@
-# Intro:
+﻿# Intro:
 
 Pra começar: O que é injeção de dependencia?
+
+ "Hollywood Principle:" Don't Call Us, We'll Call You.
+
+
 Na vida pr�tica: Voc� precisa ir ao mercado. Para executar esta tarefa suas depend�ncias s�o:
  - Verificar se h� �gua no carburador do carro suficiente para o trajeto;
  - Verificar num mapa o trajeto mais curto;
@@ -36,14 +40,27 @@ Para solucionar esse cen�rio, podemos usar alguns tipos de inje��o de depe
 
 ### Inje��o por construtor.
 Quando injetamos por construtor, fazemos que a classe quando instanciada já receba todas as dependências que ela precise. Que a classe que recebe a injeção já "nasça" (seja instanciado) com todos os objetos que ela precisa carregados nela. Assim basta a classe principal saber como trabalhar sobre os objetos que ela tem, não importando como estes já vieram configurados e carregados.
-No exemplo abaixo fizemos a classe principal instanciar os objetos necessários e também escolher qual tipo de notificação será enviada. E, voila, ela funciona exatamento como anterior.
-
-### Inje��o por Interface.
+No exemplo abaixo fizemos a classe principal instanciar os objetos necessários e também escolher qual tipo de notificação será enviada. E, voilà, ela funciona exatamento como anterior.
 
 
 ### Inje��o por setter.
 
+Quando injetamos por setter, o objeto dependente possui um atributo que pode receber qualquer instância de um tipo (geralmente uma interface). E durante a execução é setado no objeto dependente a instância da interface desejada. Tendo em vista que o objeto dependente usará apenas métodos da interface, e que por contrato, todas as implementações dessa interface implementarão estes métodos, a classe dependente não precisa se preocupar como será executado o método, apenas o executará.
 
+
+-- Simple Injector
+### Tempo de vida de uma injeção
+
+Transient - Uma nova instância do componente será criada a cada solicitação no container. Se múltiplas solicitações orem feitas, cada solicitante terá sua própria instância. Estas instâncias não são geridas pelo container, ele não as destruirá no dispose, esta será uma responsabilidade do caller.
+
+Singleton - Existirá no máximo uma instância do serviço registrado e o container manterá esta até ser disposado. Todos os clientes receberão a mesma instância do container.
+
+Scoped - Similar ao transiente, porém este tem tempo de vida limitado:
+
+	- Thread Scoped : É específico de uma thread, não pode ser movido para threads separadas.
+	- Async Scoped : É específico à um escopo, dentro deste escopo (using) somente existirá uma instância do componente. Este será disposado no final do escopo.
+	- Web Request : Uma instância por request.
+	- WCF Operation : Uma instância por operação.
 
 # Resultados
 
@@ -61,3 +78,13 @@ http://www.javacreed.com/why-should-we-use-dependency-injection/
 https://www.codeproject.com/Tips/657668/Dependency-Injection-DI
 
 http://www.devx.com/dotnet/Article/34066
+
+https://richnewman.wordpress.com/about/code-listings-and-diagrams/dependency-injection-examples/dependency-injection-example-interface-injection/
+
+https://msdn.microsoft.com/en-us/library/dn178469(v=pandp.30).aspx
+
+https://stackoverflow.com/questions/4596300/where-exactly-is-the-difference-between-ioc-and-di
+
+http://simpleinjector.readthedocs.io/en
+
+http://www.ninject.org/wiki.html
