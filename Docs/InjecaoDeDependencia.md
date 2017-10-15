@@ -48,19 +48,24 @@ No exemplo abaixo fizemos a classe principal instanciar os objetos necessários 
 Quando injetamos por setter, o objeto dependente possui um atributo que pode receber qualquer instância de um tipo (geralmente uma interface). E durante a execução é setado no objeto dependente a instância da interface desejada. Tendo em vista que o objeto dependente usará apenas métodos da interface, e que por contrato, todas as implementações dessa interface implementarão estes métodos, a classe dependente não precisa se preocupar como será executado o método, apenas o executará.
 
 
--- Simple Injector
+### Ferramentas de injeção
+
+Não é obrigatório o uso de um container de IoC para usar injeção de dependência, mas o uso deles não garante que você está fazendo de fato injeção. Ao registrar sua dependência em um container, este injetará automaticamente o objeto correspondente (baseado no registro já executado, por isso é interessante o manter no start de sua aplicação).
+
+E as ferramentas? Tem muitas? Pra .Net tem : Ninjector, Spring.NET, autoFac, PicoContainer.NET etc. Leia mais em https://www.hanselman.com/blog/ListOfNETDependencyInjectionContainersIOC.aspx .
+Mas é tudo igual? Não. Além de performances diferentes, alguns têm recursos que outros não possuem como controle de ciclo de vida, auto-encaminhamento etc.
+Segue uma lista com benchmarks e comparações de features.
+http://www.palmmedia.de/blog/2011/8/30/ioc-container-benchmark-performance-comparison
+
+
 ### Tempo de vida de uma injeção
 
 Transient - Uma nova instância do componente será criada a cada solicitação no container. Se múltiplas solicitações orem feitas, cada solicitante terá sua própria instância. Estas instâncias não são geridas pelo container, ele não as destruirá no dispose, esta será uma responsabilidade do caller.
 
 Singleton - Existirá no máximo uma instância do serviço registrado e o container manterá esta até ser disposado. Todos os clientes receberão a mesma instância do container.
 
-Scoped - Similar ao transiente, porém este tem tempo de vida limitado:
+Scoped - Similar ao transiente, porém este tem tempo de vida limitado e o objeto será destruído junto ao seu escopo.
 
-	- Thread Scoped : É específico de uma thread, não pode ser movido para threads separadas.
-	- Async Scoped : É específico à um escopo, dentro deste escopo (using) somente existirá uma instância do componente. Este será disposado no final do escopo.
-	- Web Request : Uma instância por request.
-	- WCF Operation : Uma instância por operação.
 
 # Resultados
 
